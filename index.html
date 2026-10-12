@@ -3,35 +3,265 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Hrithik | Portfolio</title>
+  <title>Hrithik | AI & Data Science Portfolio</title>
+  <meta name="description" content="Portfolio of Hrithik: Vision-RAG, deep learning and full-stack AI projects.">
   <style>
-    body { font-family: system-ui, sans-serif; max-width: 760px; margin: 40px auto; padding: 0 20px; line-height: 1.6; color: #222; }
-    h1 { margin-bottom: 0; }
-    .sub { color: #666; margin-top: 4px; }
-    .card { border: 1px solid #ddd; border-radius: 10px; padding: 16px; margin: 14px 0; }
-    a { color: #0b66c3; text-decoration: none; }
+    :root {
+      --bg: #ffffff; --bg2: #f4f6fa; --text: #1b1f27; --muted: #5d6573;
+      --accent: #2f6df6; --card: #ffffff; --border: #e3e7ef;
+    }
+    :root[data-theme="dark"] {
+      --bg: #0e1118; --bg2: #151a24; --text: #e8ebf2; --muted: #9aa3b5;
+      --accent: #6f9bff; --card: #171c27; --border: #262d3b;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: system-ui, -apple-system, "Segoe UI", sans-serif; background: var(--bg); color: var(--text); line-height: 1.65; transition: background .3s, color .3s; }
+    a { color: var(--accent); text-decoration: none; }
     a:hover { text-decoration: underline; }
+    .wrap { max-width: 980px; margin: 0 auto; padding: 0 22px; }
+
+    nav { position: sticky; top: 0; z-index: 10; background: var(--bg); border-bottom: 1px solid var(--border); }
+    nav .wrap { display: flex; align-items: center; justify-content: space-between; height: 60px; }
+    nav .logo { font-weight: 700; font-size: 1.1rem; color: var(--text); }
+    nav ul { display: flex; gap: 20px; list-style: none; align-items: center; }
+    nav ul a { color: var(--muted); font-size: .95rem; }
+    nav ul a:hover { color: var(--accent); text-decoration: none; }
+    #theme { background: var(--bg2); border: 1px solid var(--border); color: var(--text); border-radius: 8px; padding: 5px 10px; cursor: pointer; font-size: 1rem; }
+
+    section { padding: 70px 0; }
+    section.alt { background: var(--bg2); }
+    h2 { font-size: 1.7rem; margin-bottom: 26px; }
+    h2::after { content: ""; display: block; width: 48px; height: 4px; background: var(--accent); border-radius: 2px; margin-top: 8px; }
+
+    .hero { padding: 100px 0 80px; }
+    .hero .tag { color: var(--accent); font-weight: 600; letter-spacing: .5px; }
+    .hero h1 { font-size: clamp(2.2rem, 6vw, 3.6rem); line-height: 1.15; margin: 10px 0 16px; }
+    .hero p { color: var(--muted); max-width: 620px; font-size: 1.1rem; }
+    .btns { margin-top: 28px; display: flex; gap: 12px; flex-wrap: wrap; }
+    .btn { padding: 11px 22px; border-radius: 10px; font-weight: 600; border: 1px solid var(--accent); }
+    .btn.primary { background: var(--accent); color: #fff; }
+    .btn.primary:hover { text-decoration: none; opacity: .9; }
+    .btn.ghost:hover { background: var(--accent); color: #fff; text-decoration: none; }
+
+    .about-grid { display: grid; grid-template-columns: 2fr 1fr; gap: 30px; }
+    .facts { background: var(--card); border: 1px solid var(--border); border-radius: 14px; padding: 20px; }
+    .facts li { list-style: none; padding: 8px 0; border-bottom: 1px dashed var(--border); font-size: .95rem; }
+    .facts li:last-child { border: none; }
+    .facts b { display: block; color: var(--muted); font-size: .8rem; font-weight: 600; text-transform: uppercase; }
+
+    .filters { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 22px; }
+    .filters button { background: var(--card); color: var(--text); border: 1px solid var(--border); padding: 6px 14px; border-radius: 999px; cursor: pointer; font-size: .9rem; }
+    .filters button.active { background: var(--accent); color: #fff; border-color: var(--accent); }
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(290px, 1fr)); gap: 20px; }
+    .card { background: var(--card); border: 1px solid var(--border); border-radius: 14px; padding: 22px; transition: transform .2s, box-shadow .2s; }
+    .card:hover { transform: translateY(-4px); box-shadow: 0 10px 28px rgba(0,0,0,.12); }
+    .card h3 { margin-bottom: 8px; }
+    .card p { color: var(--muted); font-size: .95rem; }
+    .card ul { margin: 12px 0 0 18px; color: var(--muted); font-size: .92rem; }
+    .chips { display: flex; flex-wrap: wrap; gap: 8px; margin: 14px 0; }
+    .chip { background: var(--bg2); border: 1px solid var(--border); padding: 3px 11px; border-radius: 999px; font-size: .8rem; }
+    .badge { display: inline-block; font-size: .75rem; font-weight: 700; color: var(--accent); margin-bottom: 8px; }
+
+    .skills { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; }
+    .skills h3 { margin-bottom: 10px; font-size: 1rem; }
+
+    .timeline { border-left: 3px solid var(--border); padding-left: 20px; }
+    .timeline .item { margin-bottom: 22px; position: relative; }
+    .timeline .item::before { content: ""; position: absolute; left: -29px; top: 7px; width: 13px; height: 13px; border-radius: 50%; background: var(--accent); }
+    .timeline .item span { color: var(--muted); font-size: .85rem; }
+
+    footer { text-align: center; color: var(--muted); padding: 30px 0; font-size: .9rem; border-top: 1px solid var(--border); }
+    .reveal { opacity: 0; transform: translateY(24px); transition: all .6s ease; }
+    .reveal.show { opacity: 1; transform: none; }
+    @media (max-width: 720px) { .about-grid { grid-template-columns: 1fr; } nav ul li:not(:last-child) { display: none; } }
   </style>
 </head>
 <body>
-  <h1>Hrithik</h1>
-  <p class="sub">Your one-line intro here</p>
 
-  <h2>About</h2>
-  <p>Write 2-3 lines about yourself, your interests and goals.</p>
-
-  <h2>Projects</h2>
-  <div class="card">
-    <h3>Project Name</h3>
-    <p>Short description of what it does and the tools used.</p>
-    <a href="https://github.com/your-username/your-repo">GitHub</a>
+<nav>
+  <div class="wrap">
+    <a class="logo" href="#top">Hrithik<span style="color:var(--accent)">.</span></a>
+    <ul>
+      <li><a href="#about">About</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#journey">Journey</a></li>
+      <li><a href="#contact">Contact</a></li>
+      <li><button id="theme" aria-label="Toggle theme">🌙</button></li>
+    </ul>
   </div>
+</nav>
 
-  <h2>Contact</h2>
-  <p>
-    <a href="mailto:you@example.com">Email</a> ·
-    <a href="https://github.com/your-username">GitHub</a> ·
-    <a href="https://linkedin.com/in/your-profile">LinkedIn</a>
-  </p>
+<header class="hero" id="top">
+  <div class="wrap">
+    <div class="tag">AI · Machine Learning · Full-Stack</div>
+    <h1>Hi, I'm Hrithik.<br>I build AI that helps real people.</h1>
+    <p>Recent graduate from Bangladesh working on vision and retrieval-augmented systems, with a focus on making AI useful in Bangla for farmers.</p>
+    <div class="btns">
+      <a class="btn primary" href="#projects">View Projects</a>
+      <a class="btn ghost" href="#contact">Get in Touch</a>
+    </div>
+  </div>
+</header>
+
+<section id="about" class="alt">
+  <div class="wrap reveal">
+    <h2>About</h2>
+    <div class="about-grid">
+      <div>
+        <p>I come from a non-CS background and taught myself the path into AI: deep learning, retrieval-augmented generation and web development. My thesis, JuteRAG, takes a photo of a jute leaf, finds the disease, and writes an advisory in Bangla using trusted agricultural sources.</p>
+        <br>
+        <p>I care about systems that are honest about their limits, which is why I measure how faithful the generated answers are to their sources instead of only reporting model accuracy. I am currently preparing a journal extension of my thesis work and learning more through a University of Tokyo online AI course.</p>
+      </div>
+      <ul class="facts">
+        <li><b>Location</b>Bangladesh</li>
+        <li><b>Focus</b>Vision-RAG, Applied AI</li>
+        <li><b>Thesis grade</b>A+</li>
+        <li><b>Languages</b>Bangla, English, learning Japanese</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="projects">
+  <div class="wrap reveal">
+    <h2>Projects</h2>
+    <div class="filters" id="filters"></div>
+    <div class="grid" id="projectGrid"></div>
+  </div>
+</section>
+
+<section id="skills" class="alt">
+  <div class="wrap reveal">
+    <h2>Skills</h2>
+    <div class="skills" id="skillGrid"></div>
+  </div>
+</section>
+
+<section id="journey">
+  <div class="wrap reveal">
+    <h2>Journey</h2>
+    <div class="timeline" id="timeline"></div>
+  </div>
+</section>
+
+<section id="contact" class="alt">
+  <div class="wrap reveal">
+    <h2>Contact</h2>
+    <p style="color:var(--muted);margin-bottom:18px">Open to research collaborations, internships and interesting AI projects.</p>
+    <div class="btns">
+      <a class="btn primary" id="mail" href="#">Email me</a>
+      <a class="btn ghost" id="gh" href="#" target="_blank" rel="noopener">GitHub</a>
+      <a class="btn ghost" id="li" href="#" target="_blank" rel="noopener">LinkedIn</a>
+    </div>
+  </div>
+</section>
+
+<footer>© <span id="year"></span> Hrithik. Built with plain HTML, CSS and JavaScript.</footer>
+
+<script>
+  // ====== EDIT THIS PART ======
+  const CONFIG = {
+    email: "you@example.com",
+    github: "https://github.com/hrithikdas314",
+    linkedin: "https://linkedin.com/in/your-profile"
+  };
+
+  const PROJECTS = [
+    {
+      title: "JuteRAG: Jute Disease Diagnosis in Bangla",
+      category: "AI / ML",
+      badge: "Thesis · Conference paper submitted (IEEE ICCIT 2026)",
+      desc: "A full-stack system where a farmer uploads a jute leaf photo, a vision model identifies the disease, and a RAG pipeline writes a structured advisory in Bangla from authorized agricultural sources.",
+      points: [
+        "Top-3 ensemble of ResNet50, EfficientNetB0 and ConvNeXtTiny",
+        "Multilingual retrieval with e5 embeddings and FAISS over a curated knowledge base",
+        "Faithfulness evaluation and human evaluation of generated advisories",
+        "Accessibility tools: font size, grayscale and text-to-speech"
+      ],
+      tags: ["Python", "FastAPI", "FAISS", "RAG", "Deep Learning", "SQLite", "JavaScript"],
+      link: ""   // put the repo link here, e.g. "https://github.com/hrithikdas314/JuteRAG"
+    },
+    {
+      title: "Home Credit Default Risk",
+      category: "AI / ML",
+      badge: "GCI World 2026 · In progress",
+      desc: "Credit default prediction work for the in-class competition of the University of Tokyo Matsuo-Iwasawa Lab online course, with organized experiments and logging.",
+      points: ["Feature engineering on tabular data", "Experiment tracking in Google Colab"],
+      tags: ["Python", "Pandas", "Machine Learning", "Colab"],
+      link: ""
+    },
+    {
+      title: "This Portfolio",
+      category: "Web",
+      badge: "Personal site",
+      desc: "A responsive, theme-aware portfolio hosted free on GitHub Pages.",
+      points: ["No framework, loads fast", "Dark and light mode"],
+      tags: ["HTML", "CSS", "JavaScript"],
+      link: "https://github.com/hrithikdas314/hrithikdas314.github.io"
+    }
+  ];
+
+  const SKILLS = {
+    "AI / ML": ["Deep Learning (CNNs, transfer learning)", "Retrieval-Augmented Generation", "LLM evaluation (faithfulness)", "Robustness testing", "Model ensembling"],
+    "Web & Backend": ["HTML, CSS, JavaScript", "FastAPI", "SQLAlchemy, SQLite", "JWT authentication"],
+    "Tools": ["Python", "Git and GitHub", "Kaggle, Google Colab", "VS Code", "LaTeX (IEEE format)"]
+  };
+
+  const JOURNEY = [
+    { when: "2026", title: "GCI World (University of Tokyo)", text: "Enrolled in a free online AI and data science course by the Matsuo-Iwasawa Lab." },
+    { when: "2026", title: "JuteRAG paper submitted to IEEE ICCIT 2026", text: "Submitted the conference paper and now extending the work toward a journal paper." },
+    { when: "2026", title: "Graduated", text: "Completed my degree with an A+ thesis on jute leaf disease diagnosis." }
+  ];
+  // ====== END EDIT ======
+
+  // Theme
+  const root = document.documentElement, tbtn = document.getElementById("theme");
+  const saved = (() => { try { return localStorage.getItem("theme"); } catch (e) { return null; } })();
+  const setTheme = t => { root.setAttribute("data-theme", t); tbtn.textContent = t === "dark" ? "☀️" : "🌙"; try { localStorage.setItem("theme", t); } catch (e) {} };
+  setTheme(saved || (matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light"));
+  tbtn.onclick = () => setTheme(root.getAttribute("data-theme") === "dark" ? "light" : "dark");
+
+  // Projects + filters
+  const grid = document.getElementById("projectGrid"), filters = document.getElementById("filters");
+  const cats = ["All", ...new Set(PROJECTS.map(p => p.category))];
+  function render(cat) {
+    grid.innerHTML = PROJECTS.filter(p => cat === "All" || p.category === cat).map(p => `
+      <article class="card">
+        <div class="badge">${p.badge}</div>
+        <h3>${p.title}</h3>
+        <p>${p.desc}</p>
+        <ul>${p.points.map(x => `<li>${x}</li>`).join("")}</ul>
+        <div class="chips">${p.tags.map(t => `<span class="chip">${t}</span>`).join("")}</div>
+        ${p.link ? `<a href="${p.link}" target="_blank" rel="noopener">View on GitHub →</a>` : ""}
+      </article>`).join("");
+  }
+  filters.innerHTML = cats.map((c, i) => `<button class="${i ? "" : "active"}" data-c="${c}">${c}</button>`).join("");
+  filters.onclick = e => {
+    if (!e.target.dataset.c) return;
+    [...filters.children].forEach(b => b.classList.toggle("active", b === e.target));
+    render(e.target.dataset.c);
+  };
+  render("All");
+
+  // Skills
+  document.getElementById("skillGrid").innerHTML = Object.entries(SKILLS).map(([k, v]) => `
+    <div class="card"><h3>${k}</h3><div class="chips">${v.map(s => `<span class="chip">${s}</span>`).join("")}</div></div>`).join("");
+
+  // Journey
+  document.getElementById("timeline").innerHTML = JOURNEY.map(j => `
+    <div class="item"><span>${j.when}</span><h3>${j.title}</h3><p style="color:var(--muted)">${j.text}</p></div>`).join("");
+
+  // Contact + year
+  document.getElementById("mail").href = "mailto:" + CONFIG.email;
+  document.getElementById("gh").href = CONFIG.github;
+  document.getElementById("li").href = CONFIG.linkedin;
+  document.getElementById("year").textContent = new Date().getFullYear();
+
+  // Scroll reveal
+  const io = new IntersectionObserver(es => es.forEach(e => e.isIntersecting && e.target.classList.add("show")), { threshold: .12 });
+  document.querySelectorAll(".reveal").forEach(el => io.observe(el));
+</script>
 </body>
 </html>
