@@ -17,11 +17,11 @@
     nav { position:sticky; top:0; z-index:10; background:var(--bg); border-bottom:1px solid var(--border); }
     nav .wrap { display:flex; align-items:center; justify-content:space-between; height:60px; }
     nav .logo { font-weight:700; font-size:1.1rem; color:var(--text); }
-    nav ul { display:flex; gap:18px; list-style:none; align-items:center; }
-    nav ul a { color:var(--muted); font-size:.92rem; } nav ul a:hover { color:var(--accent); text-decoration:none; }
+    nav ul { display:flex; gap:16px; list-style:none; align-items:center; }
+    nav ul a { color:var(--muted); font-size:.9rem; } nav ul a:hover { color:var(--accent); text-decoration:none; }
     #theme { background:var(--bg2); border:1px solid var(--border); color:var(--text); border-radius:8px; padding:5px 10px; cursor:pointer; font-size:1rem; }
 
-    section { padding:70px 0; } section.alt { background:var(--bg2); }
+    section { padding:64px 0; } section.alt { background:var(--bg2); }
     h2 { font-size:1.7rem; margin-bottom:26px; }
     h2::after { content:""; display:block; width:48px; height:4px; background:var(--accent); border-radius:2px; margin-top:8px; }
 
@@ -43,27 +43,27 @@
     .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(290px,1fr)); gap:20px; }
     .card { background:var(--card); border:1px solid var(--border); border-radius:14px; padding:22px; transition:transform .2s,box-shadow .2s; }
     .card:hover { transform:translateY(-4px); box-shadow:0 10px 28px rgba(0,0,0,.12); }
-    .card h3 { margin-bottom:6px; } .card p { color:var(--muted); font-size:.95rem; }
+    .card h3 { margin-bottom:6px; font-size:1.05rem; } .card p { color:var(--muted); font-size:.94rem; }
     .card ul { margin:12px 0 0 18px; color:var(--muted); font-size:.92rem; }
-    .meta { color:var(--muted); font-size:.85rem; margin-bottom:8px; }
     .badge { display:inline-block; font-size:.75rem; font-weight:700; color:var(--accent); margin-bottom:8px; }
     .chips { display:flex; flex-wrap:wrap; gap:8px; margin:14px 0 4px; }
     .chip { background:var(--bg2); border:1px solid var(--border); padding:3px 11px; border-radius:999px; font-size:.8rem; }
+    .sub { margin:34px 0 16px; font-size:1.15rem; }
 
-    .stats { display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:16px; margin-bottom:24px; }
+    .stats { display:grid; grid-template-columns:repeat(auto-fit,minmax(140px,1fr)); gap:16px; margin-bottom:24px; }
     .stat { background:var(--card); border:1px solid var(--border); border-radius:14px; padding:16px; text-align:center; }
-    .stat b { display:block; font-size:1.5rem; color:var(--accent); }
+    .stat b { display:block; font-size:1.45rem; color:var(--accent); }
     .stat span { color:var(--muted); font-size:.82rem; }
 
     .timeline { border-left:3px solid var(--border); padding-left:20px; }
     .timeline .item { margin-bottom:22px; position:relative; }
     .timeline .item::before { content:""; position:absolute; left:-29px; top:7px; width:13px; height:13px; border-radius:50%; background:var(--accent); }
     .timeline .item span { color:var(--muted); font-size:.85rem; }
-    .timeline p { color:var(--muted); }
+    .timeline p { color:var(--muted); font-size:.94rem; }
 
     footer { text-align:center; color:var(--muted); padding:30px 0; font-size:.9rem; border-top:1px solid var(--border); }
     .reveal { opacity:0; transform:translateY(24px); transition:all .6s ease; } .reveal.show { opacity:1; transform:none; }
-    @media (max-width:820px) { .about-grid { grid-template-columns:1fr; } nav ul li:not(:last-child) { display:none; } }
+    @media (max-width:860px) { .about-grid { grid-template-columns:1fr; } nav ul li:not(:last-child) { display:none; } }
   </style>
 </head>
 <body>
@@ -77,6 +77,7 @@
       <li><a href="#projects">Projects</a></li>
       <li><a href="#skills">Skills</a></li>
       <li><a href="#experience">Experience</a></li>
+      <li><a href="#achievements">Achievements</a></li>
       <li><a href="#contact">Contact</a></li>
       <li><button id="theme" aria-label="Toggle theme">🌙</button></li>
     </ul>
@@ -102,15 +103,15 @@
     <div class="about-grid">
       <div>
         <p>I am an IoT and Robotics Engineering graduate from the University of Frontier Technology, Bangladesh, with a strong interest in artificial intelligence, machine learning, computer vision, and intelligent software systems.</p><br>
-        <p>My academic projects focus on applying technology to real-world challenges. My undergraduate thesis involved developing an AI-based jute leaf disease detection and advisory system integrating deep learning, retrieval-augmented generation (RAG), and large language models. I also worked on an IoT and machine learning-based crop recommendation system for sustainable agriculture in Bangladesh.</p><br>
-        <p>I am interested in building practical, data-driven applications and continuing to develop my capabilities in AI engineering, software development, and applied research.</p>
+        <p>My undergraduate thesis was an AI-based jute leaf disease detection and advisory system that combines deep learning, retrieval-augmented generation (RAG) and large language models. I have also built IoT and machine learning systems for agriculture and climate forecasting, and I co-authored a paper presented at IEEE SPICSCON 2025.</p><br>
+        <p>Beyond engineering, I have led a student organization, helped organize national-level events and worked on field data collection for UNDP-backed youth programmes.</p>
       </div>
       <ul class="facts">
         <li><b>Location</b>Bangladesh</li>
         <li><b>Degree</b>BSc Engg., IoT &amp; Robotics Engineering</li>
         <li><b>Thesis grade</b>A+</li>
-        <li><b>Interests</b>AI for agriculture, RAG, computer vision</li>
-        <li><b>Languages</b>Bangla, English, Japanese (learning)</li>
+        <li><b>Interests</b>AI for agriculture, RAG, computer vision, IoT</li>
+        <li><b>Languages</b>Bangla (native), English (professional), Hindi (intermediate), Japanese (basic)</li>
       </ul>
     </div>
   </div>
@@ -118,17 +119,15 @@
 
 <section id="education">
   <div class="wrap reveal">
-    <h2>Education</h2>
+    <h2>Education &amp; Certifications</h2>
     <div class="stats">
       <div class="stat"><b>3.04</b><span>Cumulative CGPA / 4.00</span></div>
-      
+      <div class="stat"><b>3.80</b><span>Final semester GPA / 4.00</span></div>
       <div class="stat"><b>A+</b><span>Thesis grade</span></div>
-      <div class="stat"><b>Graduated</b><span>Status</span></div>
     </div>
-    <div class="card">
-      <h3>Bachelor of Science in Engineering (BSc Engg.)</h3>
-      <p>Internet of Things (IoT) &amp; Robotics Engineering · University of Frontier Technology, Bangladesh (UFTB)</p>
-    </div>
+    <div class="grid" id="eduGrid"></div>
+    <h3 class="sub">Certifications</h3>
+    <div class="grid" id="certGrid"></div>
   </div>
 </section>
 
@@ -136,6 +135,8 @@
   <div class="wrap reveal">
     <h2>Featured Projects</h2>
     <div class="grid" id="projectGrid"></div>
+    <h3 class="sub">More Projects</h3>
+    <div class="grid" id="moreGrid"></div>
   </div>
 </section>
 
@@ -148,15 +149,17 @@
 
 <section id="experience" class="alt">
   <div class="wrap reveal">
-    <h2>Experience &amp; Leadership</h2>
-    <div class="timeline" id="timeline"></div>
+    <h2>Work Experience</h2>
+    <div class="timeline" id="workTimeline"></div>
+    <h3 class="sub">Leadership &amp; Co-curricular</h3>
+    <div class="timeline" id="leadTimeline"></div>
   </div>
 </section>
 
-<section id="research">
+<section id="achievements">
   <div class="wrap reveal">
-    <h2>Research Interests</h2>
-    <div class="chips" id="interests"></div>
+    <h2>Achievements</h2>
+    <div class="grid" id="achGrid"></div>
   </div>
 </section>
 
@@ -179,9 +182,21 @@
   const CONFIG = {
     email: "hrithikdas314@gmail.com",
     github: "https://github.com/hrithikdas314",
-    linkedin: "https://linkedin.com/in/hrithikdas314",
-    cv: "#"   // e.g. "cv.pdf" after uploading the file to the repository
+    linkedin: "https://linkedin.com/in/your-profile",
+    cv: "#"   // upload a public CV (no phone number, no references) and write e.g. "cv.pdf"
   };
+
+  const EDUCATION = [
+    { title: "BSc (Engg.) in IoT & Robotics Engineering", sub: "University of Frontier Technology, Bangladesh · 2022 – 2026", text: "CGPA 3.04 / 4.00" },
+    { title: "Higher Secondary Certificate (Science)", sub: "St. Gregory's High School and College · 2018 – 2020", text: "GPA 4.67 / 5.00" },
+    { title: "Secondary School Certificate (Science)", sub: "Bangladesh Bank Adarsha High School · 2018", text: "GPA 5.00 / 5.00" }
+  ];
+
+  const CERTS = [
+    { title: "Software Quality Assurance, Level 3 (BNQF)", sub: "National Skills Certificate · NSDA, Prime Minister's Office · 2026" },
+    { title: "Job Ready Program", sub: "Wadhwani Foundation Employability Skills Program · 2023 · 90% score" },
+    { title: "Robotics & IoT Training", sub: "Creative IT Institute · 2021 · Full scholarship" }
+  ];
 
   const PROJECTS = [
     {
@@ -195,74 +210,105 @@
         "User authentication, prediction history and accessibility features",
         "Grad-CAM for model explainability"
       ],
-      tags: ["Python", "TensorFlow/Keras", "FastAPI", "FAISS", "RAG", "LLM", "Groq API", "Computer Vision"],
-      link: ""   // e.g. "https://github.com/hrithikdas314/JuteRAG"
+      tags: ["Python", "TensorFlow/Keras", "FastAPI", "FAISS", "RAG", "LLM", "Computer Vision"],
+      link: ""
     },
     {
-      title: "IoT and ML-Based Crop Recommendation for Sustainable Agriculture in Bangladesh",
-      badge: "Smart agriculture · IoT + Machine Learning",
-      desc: "A smart agriculture solution that combines soil and environmental sensing with machine learning to recommend suitable crops for Bangladesh.",
+      title: "Context-Aware IoT and ML Framework for Crop Recommendation in Bangladesh",
+      badge: "IoT + Machine Learning · Smart agriculture",
+      desc: "Combines soil and environmental sensing with machine learning to give context-aware crop recommendations for farmers in Bangladesh.",
       points: [
-        "Soil NPK, soil moisture, pH and DHT environmental sensors",
-        "Naive Bayes classifier trained on a Kaggle crop recommendation dataset",
-        "Basic website to present the system and its recommendations",
-        "Hardware sensing and software recommendations combined in one application"
+        "Soil NPK, moisture, pH and DHT sensors",
+        "Naive Bayes classifier trained on a Kaggle crop dataset",
+        "Basic website to present the system"
       ],
-      tags: ["IoT Sensors", "Python", "Machine Learning", "Naive Bayes", "Web Development"],
+      tags: ["IoT Sensors", "Python", "Machine Learning", "Naive Bayes"],
+      link: ""
+    },
+    {
+      title: "ClimaCare: Explainable IoT-ML Framework for Microclimate Forecasting",
+      badge: "Co-authored paper · Presented at the 4th IEEE SPICSCON 2025 (Rajshahi)",
+      desc: "An IoT-ML framework that forecasts microclimate conditions and provides actionable environmental data for agriculture, urban planning and climate resilience.",
+      points: ["Explainable machine learning on sensor data", "Forecasting for local climate conditions"],
+      tags: ["IoT", "Machine Learning", "Explainable AI", "Forecasting"],
       link: ""
     }
   ];
 
-  const SKILLS = {
-    "Programming & Development": ["Python", "FastAPI", "HTML", "CSS", "JavaScript"],
-    "AI & Machine Learning": ["Computer Vision", "Deep Learning", "Image Classification", "TensorFlow / Keras", "DenseNet121", "ConvNeXtTiny", "Naive Bayes", "Grad-CAM"],
-    "Generative AI & Retrieval": ["Retrieval-Augmented Generation", "Large Language Models", "FAISS", "Groq API"],
-    "IoT & Smart Systems": ["IoT Sensors", "Sensor Data Collection", "Smart Agriculture", "Hardware–Software Integration"]
-  };
-
-  const EXPERIENCE = [
-    { when: "2026", title: "Research Assistant · Hospital-based research project",
-      text: "Supported patient-data collection through hospital visits, coordinated collection around patient availability and worked within a scheduled research workflow." },
-    { when: "18–21 October 2025", title: "Volunteer / Data Enumerator · UNDP–FutureNation",
-      text: "Volunteer data enumerator assignment." },
-    { when: "University", title: "President · UFTB Sanatani Sangha",
-      text: "Led a university student organization." }
+  const MORE = [
+    { title: "Agri-RAG", text: "Multimodal RAG system that identifies crop diseases and gives context-aware treatment recommendations from images and agricultural data." },
+    { title: "Smart Automated Fire Fighting Robot", text: "Autonomous robot that uses sensors and control systems to detect and extinguish fires." },
+    { title: "Smart Diabetes Prediction System", text: "Machine learning models that predict diabetes risk for early intervention." },
+    { title: "Construction Safety in Mega Projects in Bangladesh", text: "Secondary-data analysis of gaps between safety regulations and on-site implementation." },
+    { title: "Luxury Brands Customer Perception", text: "Exploratory study among lower-income consumers in Bangladesh." },
+    { title: "Software Projects", text: "ChakriHUT (job search and hiring platform), Khida Lagse (food ordering and delivery), Insurance Management System and Library Management System." }
   ];
 
-  const INTERESTS = ["Artificial Intelligence & Machine Learning", "Computer Vision & Deep Learning", "RAG and LLM-based Applications", "Internet of Things", "AI for Agriculture & Sustainable Development", "Applied AI Systems & Decision Support", "Smart Sensing & Data-Driven Applications"];
+  const SKILLS = {
+    "Programming & Data": ["Python", "FastAPI", "HTML / CSS / JavaScript", "Excel", "Data cleaning & visualization", "Survey data analysis"],
+    "AI & Machine Learning": ["Computer Vision", "Deep Learning", "Image Classification", "TensorFlow / Keras", "scikit-learn", "Feature engineering", "Model evaluation", "Grad-CAM"],
+    "Generative AI & Retrieval": ["Retrieval-Augmented Generation", "Large Language Models", "FAISS", "Groq API"],
+    "IoT & Robotics": ["Sensor integration", "Microcontroller programming", "Data acquisition", "Real-time monitoring", "Motor control", "Basic automation"],
+    "Soft Skills": ["Youth leadership", "Communication & teamwork", "Public speaking", "Community engagement"]
+  };
+
+  const WORK = [
+    { when: "Aug 2026 – Present", title: "Research Assistant · UFTB", text: "Collect and organize medical data from hospitals for research, keeping accuracy and confidentiality." },
+    { when: "Oct 2025", title: "Data Enumerator · Futurenation Programme (UNDP)", text: "Conducted the Tertiary Students' Entrepreneurship Aspiration Survey in support of entrepreneurship initiatives in Bangladesh." },
+    { when: "Sep 2025 – Present", title: "Volunteer · UNDP", text: "Youth-focused and community programmes aligned with the Sustainable Development Goals." },
+    { when: "Sep 2025 – Present", title: "Volunteer & Campus Representative · Futurenation", text: "Youth leadership and community engagement initiatives." },
+    { when: "Jan 2025 – Present", title: "Campus Ambassador · Workwave", text: "Promoting Workwave's initiatives on campus and facilitating student events." }
+  ];
+
+  const LEADERSHIP = [
+    { when: "Jan 2025 – Present", title: "President · UFTB Sanatani Sangha", text: "Leads the student organization (previously Vice President) and organizes the annual Saraswati Puja \"Bani Archana\" events." },
+    { when: "Jul 2023 – Oct 2024", title: "Executive Member · UFTB STEAM Club", text: "Helped organize the National STEAM Olympiad and STEM and Arts workshops." },
+    { when: "Oct 2018 – Nov 2019", title: "Organizing Secretary · Gregorian Chess Club", text: "Coordinated club tournaments and events." },
+    { when: "Oct 2018 – Nov 2019", title: "Executive Member · Gregorian Science Club", text: "Helped organize the annual science fest and Olympiad." },
+    { when: "Jan 2016 – Jan 2017", title: "Co-Organizer · Bangladesh Chess Federation", text: "Coordinated chess events and tournaments at the national level." }
+  ];
+
+  const ACHIEVEMENTS = [
+    { title: "ICT Olympiad Bangladesh (Season 2)", sub: "2025" },       // add your exact rank once confirmed
+    { title: "National STEAM Olympiad", sub: "2024 · National finalist" },
+    { title: "Bangladesh Chess Federation", sub: "2016 · 4th place, Dhaka Division" },
+    { title: "Bishwo Shahitto Kendro", sub: "2014 · \"Shera Pathak\" in a national-level reading competition" }
+  ];
   // ====== END EDIT ======
 
-  const root = document.documentElement, tbtn = document.getElementById("theme");
+  const $ = id => document.getElementById(id);
+  const card = (t, s, p) => `<div class="card"><h3>${t}</h3>${s ? `<p>${s}</p>` : ""}${p ? `<p style="margin-top:6px">${p}</p>` : ""}</div>`;
+  const tl = a => a.map(j => `<div class="item"><span>${j.when}</span><h3>${j.title}</h3><p>${j.text}</p></div>`).join("");
+
+  const root = document.documentElement, tbtn = $("theme");
   const saved = (() => { try { return localStorage.getItem("theme"); } catch (e) { return null; } })();
   const setTheme = t => { root.setAttribute("data-theme", t); tbtn.textContent = t === "dark" ? "☀️" : "🌙"; try { localStorage.setItem("theme", t); } catch (e) {} };
   setTheme(saved || (matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light"));
   tbtn.onclick = () => setTheme(root.getAttribute("data-theme") === "dark" ? "light" : "dark");
 
-  document.getElementById("projectGrid").innerHTML = PROJECTS.map(p => `
+  $("eduGrid").innerHTML = EDUCATION.map(e => card(e.title, e.sub, e.text)).join("");
+  $("certGrid").innerHTML = CERTS.map(c => card(c.title, c.sub)).join("");
+  $("projectGrid").innerHTML = PROJECTS.map(p => `
     <article class="card">
-      <div class="badge">${p.badge}</div>
-      <h3>${p.title}</h3>
-      <p>${p.desc}</p>
+      <div class="badge">${p.badge}</div><h3>${p.title}</h3><p>${p.desc}</p>
       <ul>${p.points.map(x => `<li>${x}</li>`).join("")}</ul>
       <div class="chips">${p.tags.map(t => `<span class="chip">${t}</span>`).join("")}</div>
       ${p.link ? `<a href="${p.link}" target="_blank" rel="noopener">View on GitHub →</a>` : ""}
     </article>`).join("");
+  $("moreGrid").innerHTML = MORE.map(m => card(m.title, m.text)).join("");
+  $("skillGrid").innerHTML = Object.entries(SKILLS).map(([k, v]) =>
+    `<div class="card"><h3>${k}</h3><div class="chips">${v.map(s => `<span class="chip">${s}</span>`).join("")}</div></div>`).join("");
+  $("workTimeline").innerHTML = tl(WORK);
+  $("leadTimeline").innerHTML = tl(LEADERSHIP);
+  $("achGrid").innerHTML = ACHIEVEMENTS.map(a => card(a.title, a.sub)).join("");
 
-  document.getElementById("skillGrid").innerHTML = Object.entries(SKILLS).map(([k, v]) => `
-    <div class="card"><h3>${k}</h3><div class="chips">${v.map(s => `<span class="chip">${s}</span>`).join("")}</div></div>`).join("");
+  $("mail").href = "mailto:" + CONFIG.email;
+  $("gh").href = CONFIG.github;
+  $("li").href = CONFIG.linkedin;
+  $("cv").href = CONFIG.cv;
+  $("year").textContent = new Date().getFullYear();
 
-  document.getElementById("timeline").innerHTML = EXPERIENCE.map(j => `
-    <div class="item"><span>${j.when}</span><h3>${j.title}</h3><p>${j.text}</p></div>`).join("");
-
-  document.getElementById("interests").innerHTML = INTERESTS.map(i => `<span class="chip">${i}</span>`).join("");
-
-  document.getElementById("mail").href = "mailto:" + CONFIG.email;
-  document.getElementById("gh").href = CONFIG.github;
-  document.getElementById("li").href = CONFIG.linkedin;
-  document.getElementById("cv").href = CONFIG.cv;
-  document.getElementById("year").textContent = new Date().getFullYear();
-
-  const io = new IntersectionObserver(es => es.forEach(e => e.isIntersecting && e.target.classList.add("show")), { threshold: .12 });
+  const io = new IntersectionObserver(es => es.forEach(e => e.isIntersecting && e.target.classList.add("show")), { threshold: .08 });
   document.querySelectorAll(".reveal").forEach(el => io.observe(el));
 </script>
 </body>
