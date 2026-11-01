@@ -15,14 +15,15 @@
     section { padding:90px 0; border-bottom:1px solid var(--border); }
     h2 { text-align:center; font-size:2.3rem; font-weight:400; margin-bottom:56px; }
     h2 span { color:var(--muted); }
+    h3.sub { text-align:center; font-size:1.25rem; font-weight:400; color:var(--muted); margin:64px 0 28px; letter-spacing:.5px; }
 
     /* navigation */
     nav { position:sticky; top:0; z-index:50; height:var(--nav); background:rgba(10,10,13,.82); backdrop-filter:blur(12px); -webkit-backdrop-filter:blur(12px); border-bottom:1px solid var(--border); }
-    nav .bar { max-width:1180px; height:100%; margin:0 auto; padding:0 24px; display:flex; align-items:center; justify-content:space-between; gap:16px; }
+    nav .bar { max-width:1240px; height:100%; margin:0 auto; padding:0 24px; display:flex; align-items:center; justify-content:space-between; gap:16px; }
     .brand { font-weight:700; font-size:1.1rem; white-space:nowrap; }
     .brand span { color:var(--accent); }
-    .links { display:flex; gap:6px; list-style:none; }
-    .links a { display:block; padding:7px 13px; border-radius:8px; color:var(--muted); font-size:.92rem; transition:.2s; }
+    .links { display:flex; gap:4px; list-style:none; }
+    .links a { display:block; padding:7px 11px; border-radius:8px; color:var(--muted); font-size:.9rem; transition:.2s; }
     .links a:hover { color:var(--text); background:#1a1a26; }
     .links a.active { color:#e9d5ff; background:#2a1646; }
     .social { display:flex; gap:14px; align-items:center; }
@@ -90,6 +91,56 @@
     .proj .ic.live { background:#16a34a; }
     .proj p { color:var(--muted); }
 
+    /* languages: progress rings */
+    .langs { display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:24px; max-width:960px; margin:0 auto; }
+    .lang { text-align:center; padding:30px 20px 26px; border:1px solid var(--border); border-radius:22px; background:#0f0f16; transition:.25s; }
+    .lang:hover { transform:translateY(-6px); border-color:#5b21b6; }
+    .ringwrap { position:relative; width:112px; height:112px; margin:0 auto 18px; }
+    .ringwrap svg { width:100%; height:100%; transform:rotate(-90deg); }
+    .ringwrap circle { fill:none; stroke-width:6; }
+    .ringwrap .track { stroke:#1f1f2c; }
+    .ringwrap .ring { stroke:url(#lg); stroke-linecap:round; stroke-dasharray:213.6; stroke-dashoffset:213.6; transition:stroke-dashoffset 1.4s cubic-bezier(.2,.8,.2,1); }
+    .reveal.show .ring { stroke-dashoffset:calc(213.6 * (1 - var(--p) / 100)); }
+    .ringwrap .pct { position:absolute; inset:0; display:flex; align-items:center; justify-content:center; font-size:1.5rem; font-weight:300; color:#e9d5ff; }
+    .lang h3 { font-size:1.2rem; font-weight:500; margin-bottom:4px; }
+    .lang .lvl { color:#d8b4fe; font-size:.85rem; font-weight:600; letter-spacing:.5px; text-transform:uppercase; }
+    .lang .note { color:var(--muted); font-size:.82rem; margin-top:6px; }
+
+    /* co-curricular activities */
+    .acts { display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:24px; max-width:960px; margin:0 auto; }
+    .act { position:relative; overflow:hidden; padding:28px 26px 26px; border-radius:20px; background:linear-gradient(160deg,#14141d,#0d0d13); border:1px solid var(--border); transition:.25s; }
+    .act::before { content:""; position:absolute; left:0; right:0; top:0; height:3px; background:linear-gradient(90deg,#a855f7,#6366f1); }
+    .act:hover { transform:translateY(-6px); box-shadow:0 14px 34px rgba(168,85,247,.14); border-color:#3b2a66; }
+    .act .top { display:flex; align-items:center; justify-content:space-between; gap:10px; margin-bottom:16px; }
+    .act .em { width:52px; height:52px; border-radius:16px; background:#1e1233; display:flex; align-items:center; justify-content:center; font-size:1.6rem; }
+    .chip { font-size:.76rem; color:var(--muted); border:1px solid var(--border); border-radius:999px; padding:4px 12px; }
+    .chip.now { color:#86efac; border-color:#14532d; background:#0b1f12; display:inline-flex; align-items:center; gap:7px; }
+    .chip.now::before { content:""; width:7px; height:7px; border-radius:50%; background:#22c55e; animation:pulse 1.6s infinite; }
+    @keyframes pulse { 0% { box-shadow:0 0 0 0 rgba(34,197,94,.6); } 100% { box-shadow:0 0 0 9px rgba(34,197,94,0); } }
+    .act h3 { font-size:1.15rem; margin-bottom:2px; }
+    .act .org { color:#d8b4fe; font-weight:600; margin-bottom:12px; }
+    .act p { color:var(--muted); font-size:.93rem; }
+
+    /* achievements and certificates */
+    .trophies { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:22px; max-width:960px; margin:0 auto; }
+    .trophy { border:1px solid transparent; border-radius:20px; padding:26px 22px; text-align:center; background:linear-gradient(#101018,#101018) padding-box, linear-gradient(135deg,#a855f7,#6366f1 60%,#22d3ee) border-box; transition:.25s; }
+    .trophy:hover { transform:translateY(-6px); }
+    .trophy .ico { font-size:2rem; margin-bottom:6px; }
+    .trophy .yr { font-size:2.1rem; font-weight:300; background:linear-gradient(90deg,#c084fc,#6366f1); -webkit-background-clip:text; background-clip:text; color:transparent; line-height:1.2; margin-bottom:8px; }
+    .trophy h3 { font-size:1.02rem; font-weight:600; margin-bottom:6px; }
+    .trophy p { color:var(--muted); font-size:.88rem; }
+
+    .certs { display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:22px; max-width:960px; margin:0 auto; }
+    .cert { position:relative; padding:22px 24px 20px 28px; border-radius:14px; background:#0f0f16; border:1px solid var(--border); border-left:5px solid #f5c451; transition:.25s; }
+    .cert:hover { transform:translateX(6px); border-color:#3d3417; border-left-color:#f5c451; }
+    .cert .lab { font-size:.7rem; letter-spacing:2px; color:#f5c451; font-weight:700; margin-bottom:8px; }
+    .cert h3 { font-size:1.08rem; margin-bottom:4px; }
+    .cert .issuer { color:var(--muted); font-size:.92rem; }
+    .cert .foot { display:flex; flex-wrap:wrap; align-items:center; gap:10px; margin-top:14px; }
+    .cert .score { background:#2a2208; color:#f5c451; border-radius:6px; padding:3px 10px; font-size:.8rem; font-weight:600; }
+    .cert .view { color:#d8b4fe; font-size:.85rem; font-weight:600; }
+    .cert .view:hover { text-decoration:underline; }
+
     /* contact */
     .contact { text-align:center; }
     .contact ul { list-style:none; display:flex; flex-direction:column; gap:18px; align-items:center; font-size:1.1rem; }
@@ -101,7 +152,7 @@
     #toTop:hover { background:var(--accent2); color:#fff; }
     .reveal { opacity:0; transform:translateY(26px); transition:all .7s ease; } .reveal.show { opacity:1; transform:none; }
 
-    @media (max-width:980px) {
+    @media (max-width:1180px) {
       #burger { display:block; }
       .links { position:absolute; top:var(--nav); left:0; right:0; flex-direction:column; background:rgba(10,10,13,.97); border-bottom:1px solid var(--border); padding:10px 24px 16px; display:none; }
       .links.open { display:flex; }
@@ -168,6 +219,26 @@
   <div class="projects" id="projectList"></div>
 </div></section>
 
+<section id="languages"><div class="wrap reveal">
+  <h2>Languages</h2>
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <defs><linearGradient id="lg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#c084fc"/><stop offset="1" stop-color="#6366f1"/></linearGradient></defs>
+  </svg>
+  <div class="langs" id="langList"></div>
+</div></section>
+
+<section id="activities"><div class="wrap reveal">
+  <h2>Co-curricular <span>Activities</span></h2>
+  <div class="acts" id="actList"></div>
+</div></section>
+
+<section id="achievements"><div class="wrap reveal">
+  <h2>Achievements <span>&amp; Certificates</span></h2>
+  <div class="trophies" id="achList"></div>
+  <h3 class="sub">Certifications</h3>
+  <div class="certs" id="certList"></div>
+</div></section>
+
 <section id="contact" class="contact"><div class="wrap reveal">
   <h2>Get in Touch</h2>
   <ul id="contactList"></ul>
@@ -208,7 +279,7 @@
     ["FastAPI","fastapi/fastapi-original"], ["TensorFlow","tensorflow/tensorflow-original"],
     ["scikit-learn","scikitlearn/scikitlearn-original"], ["Arduino","arduino/arduino-original"],
     ["C","c/c-original"], ["C++","cplusplus/cplusplus-original"],
-    ["Git","git/git-original"], 
+    ["Git","git/git-original"]
   ];
 
   const EXPERIENCE = [
@@ -218,12 +289,9 @@
     { when:"Sep 2025 - Present", role:"Volunteer & Data Enumerator", org:"UNDP / Futurenation",
       text:"Youth-focused programmes aligned with the SDGs; conducted the Tertiary Students' Entrepreneurship Aspiration Survey (Oct 2025).",
       tags:["Survey","Community","Communication"] },
-    { when:"Jan 2025 - Present", role:"President", org:"UFTB Sanatani Sangha",
-      text:"Leading the student organization and organizing its annual cultural events.",
-      tags:["Leadership","Event Management"] },
-    { when:"Jul 2023 - Oct 2024", role:"Executive Member", org:"UFTB STEAM Club",
-      text:"Helped organize the National STEAM Olympiad and STEM and Arts workshops.",
-      tags:["Organizing","Workshops"] }
+    { when:"Jan 2025 - Present", role:"Campus Ambassador", org:"Workwave",
+      text:"Promoting Workwave's initiatives on campus, engaging students and facilitating events.",
+      tags:["Campus Outreach","Communication"] }
   ];
 
   const PUBLICATIONS = [
@@ -247,13 +315,49 @@
       tags:["Arduino","Sensors","Robotics"], code:"", live:"" }
   ];
 
+  // percent controls how full the ring is
+  const LANGUAGES = [
+    { name:"Bangla",   level:"Native",       percent:100, note:"Mother tongue" },
+    { name:"English",  level:"Professional", percent:80,  note:"Professional working proficiency" },
+    { name:"Hindi",    level:"Intermediate", percent:55,  note:"" },
+    { name:"Japanese", level:"Basic",        percent:30,  note:"Currently learning" }
+  ];
+
+  const ACTIVITIES = [
+    { icon:"🪔", role:"President", org:"UFTB Sanatani Sangha", when:"Jan 2025 - Present", current:true,
+      text:"Leads the student organization (previously Vice President) and organizes the annual Saraswati Puja \"Bani Archana\" events." },
+    { icon:"🔬", role:"Executive Member", org:"UFTB STEAM Club", when:"Jul 2023 - Oct 2024", current:false,
+      text:"Helped organize the National STEAM Olympiad and STEM and Arts workshops." },
+    { icon:"♟️", role:"Organizing Secretary", org:"Gregorian Chess Club", when:"Oct 2018 - Nov 2019", current:false,
+      text:"Coordinated club tournaments and events and managed schedules." },
+    { icon:"🧪", role:"Executive Member", org:"Gregorian Science Club", when:"Oct 2018 - Nov 2019", current:false,
+      text:"Helped organize the annual science fest and Olympiad, one of the top college science events in Bangladesh." },
+    { icon:"⚽", role:"Executive Member", org:"BBAHS Football Club & Chess Club", when:"Feb 2016 - Jan 2018", current:false,
+      text:"Supported club activities and coordinated football and chess events." },
+    { icon:"🏛️", role:"Co-Organizer", org:"Bangladesh Chess Federation", when:"Jan 2016 - Jan 2017", current:false,
+      text:"Coordinated chess events and tournaments at the national level." }
+  ];
+
+  const ACHIEVEMENTS = [
+    { icon:"💻", year:"2025", title:"ICT Olympiad Bangladesh (Season 2)", detail:"" },   // add your confirmed result here
+    { icon:"🔬", year:"2024", title:"National STEAM Olympiad", detail:"National finalist" },
+    { icon:"♟️", year:"2016", title:"Bangladesh Chess Federation", detail:"4th place, Dhaka Division" },
+    { icon:"📚", year:"2014", title:"Bishwo Shahitto Kendro", detail:"\"Shera Pathak\" in a national-level reading competition" }
+  ];
+
+  const CERTIFICATES = [
+    { title:"Software Quality Assurance, Level 3 (BNQF)", issuer:"National Skills Certificate · NSDA, Prime Minister's Office, Bangladesh", year:"2026", score:"", link:"" },
+    { title:"Job Ready Program", issuer:"Wadhwani Foundation · Employability Skills Program", year:"2023", score:"Score: 90%", link:"" },
+    { title:"Robotics & IoT Training", issuer:"Creative IT Institute · Full scholarship", year:"2021", score:"", link:"" }
+  ];
+
   const CONTACT = {
     location:"Dhaka, Bangladesh",
     email:"hrithikdas314@gmail.com",
     phone:"+880 1678-420790"        // leave empty to keep your number private
   };
 
-  const NAV = [["about","About"],["skills","Skills"],["experience","Experience"],["publications","Publications"],["projects","Projects"],["contact","Contact"]];
+  const NAV = [["about","About"],["skills","Skills"],["experience","Experience"],["publications","Papers"],["projects","Projects"],["languages","Languages"],["activities","Activities"],["achievements","Awards"],["contact","Contact"]];
   // ====== END EDIT ======
 
   const $ = id => document.getElementById(id);
@@ -332,6 +436,36 @@
       </h3><p>${p.text}</p>
       <div class="tags">${p.tags.map(t => `<span class="tag">${t}</span>`).join("")}</div></div></div>`).join("");
   PROJECTS.forEach((p, i) => $("th" + i).appendChild(img(p.image, p.title)));
+
+  $("langList").innerHTML = LANGUAGES.map(l => `
+    <div class="lang">
+      <div class="ringwrap">
+        <svg viewBox="0 0 80 80"><circle class="track" cx="40" cy="40" r="34"/><circle class="ring" cx="40" cy="40" r="34" style="--p:${l.percent}"/></svg>
+        <div class="pct">${l.percent}%</div>
+      </div>
+      <h3>${l.name}</h3>
+      <div class="lvl">${l.level}</div>
+      ${l.note ? `<div class="note">${l.note}</div>` : ""}
+    </div>`).join("");
+
+  $("actList").innerHTML = ACTIVITIES.map(a => `
+    <article class="act">
+      <div class="top"><div class="em">${a.icon}</div>
+        <span class="chip ${a.current ? "now" : ""}">${a.current ? "Current · " : ""}${a.when}</span></div>
+      <h3>${a.role}</h3>
+      <div class="org">${a.org}</div>
+      <p>${a.text}</p>
+    </article>`).join("");
+
+  $("achList").innerHTML = ACHIEVEMENTS.map(a => `
+    <div class="trophy"><div class="ico">${a.icon}</div><div class="yr">${a.year}</div>
+      <h3>${a.title}</h3>${a.detail ? `<p>${a.detail}</p>` : ""}</div>`).join("");
+
+  $("certList").innerHTML = CERTIFICATES.map(c => `
+    <div class="cert"><div class="lab">CERTIFICATE · ${c.year}</div>
+      <h3>${c.title}</h3><div class="issuer">${c.issuer}</div>
+      ${(c.score || c.link) ? `<div class="foot">${c.score ? `<span class="score">${c.score}</span>` : ""}${c.link ? `<a class="view" href="${c.link}" target="_blank" rel="noopener">View certificate ↗</a>` : ""}</div>` : ""}
+    </div>`).join("");
 
   const c = [];
   if (CONTACT.location) c.push(`<li>📍 ${CONTACT.location}</li>`);
