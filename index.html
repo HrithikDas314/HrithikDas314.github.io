@@ -413,7 +413,7 @@
 
   const DI = "https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/icons/";
   $("tiles").innerHTML = SKILLS.map(([n, p]) =>
-    `<div class="tile" title="${n}"><img src="${DI}${p}.svg" alt="${n}" onerror="this.style.display='none'"><small>${n}</small></div>`).join("");
+    `<div class="tile" title="${n}"><img src="${p.startsWith("http") ? p : DI + p + ".svg"}" alt="${n}" onerror="this.style.display='none'"><small>${n}</small></div>`).join("");
 
   $("expList").innerHTML = EXPERIENCE.map(e => `
     <div class="row"><div class="when">${e.when}</div>
