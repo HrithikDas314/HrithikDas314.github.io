@@ -253,7 +253,7 @@
   const PROFILE = {
     name: "Hrithik Das",
     roleA: "IoT & Robotics Engineer",
-    roleB: "AI / ML Developer",
+    roleB: "AI & Machine Learning Enthusiast",
     heroText: "IoT and Robotics Engineering graduate building practical AI systems: computer vision, retrieval-augmented generation and sensor-driven applications for agriculture and climate.",
     heroImage: "images/hero.jpg",
         aboutImage: "images/about.png",
@@ -404,7 +404,7 @@
   $("aboutText").innerHTML = PROFILE.about.map(p => `<p>${p}</p>`).join("");
   $("resume").href = PROFILE.resume;
 
-  const roles = [PROFILE.roleB, "Research-minded Builder"];
+  const roles = ["AI & Machine Learning Enthusiast", "Software and Technology Developer", "Aspiring Researcher"];
   let ri = 0;
   setInterval(() => {
     const el = $("roleB"); el.style.opacity = 0;
